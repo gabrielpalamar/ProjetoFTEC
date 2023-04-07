@@ -1,12 +1,3 @@
-<?php
-    session_start();
-if (isset($_POST['mensagem'])) {
-    echo '<script>alert("' . $_POST['mensagem'] . '");</script>';
-}
-
-include('../../php/lista_materias.php')
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,21 +7,19 @@ include('../../php/lista_materias.php')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/prof.css">
     <link rel="stylesheet" href="../../css/geral.css">
-    <title><?php echo $_SESSION['usuario']; ?></title>
+    <title>Professor</title>
 </head>
 
 <body>
     <header>
-        <h1><?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?></h1>
+        <h1>Bem-vindo Professor</h1>
     </header>
     <main class="form">
-        <form action="/../php/criar_conteudo.php" method="post">
+        <form action="" method="">
             <h2>Cadastrar um novo conteudo</h2><br>
             <select name="materia" id="materia" required>
-                <!-- <option value="">Selecione a materia</option> -->
-                <?php foreach ($materias as $materia): ?>
-                    <option value="<?php echo $materia['materia']; ?>"><?php echo $materia['materia']; ?></option>
-                <?php endforeach; ?>
+                <option>Materia 1</option>
+                <option>Materia 2</option>
             </select>
             <label for="titulo">Titulo</label><br>
             <input type="text" name="titulo" value=""><br>

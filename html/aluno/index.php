@@ -1,9 +1,3 @@
-<?php
-session_start();
-include('../../php/lista_materias.php');
-include('../../php/lista_conteudo.php');
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,37 +8,39 @@ include('../../php/lista_conteudo.php');
     <link rel="stylesheet" href="../../css/aluno.css">
     <link rel="stylesheet" href="../../css/geral.css">
     <title>
-        <?php echo $_SESSION['usuario']; ?>
+Aluno
     </title>
 </head>
 
 <body>
     <header>
         <h1>
-            <?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?>
+            Bem-vindo, Aluno
         </h1>
         <section>
             <form action=# method="GET">
                 <select name="materia" id="materia">
-                    <?php foreach ($materias as $materia): ?>
-                        <option value="<?php echo $materia['materia']; ?>"><?php echo $materia['materia']; ?></option>
-                    <?php endforeach; ?>
+                    <option>Materia 1</option>
+                    <option>Materia 2</option>
                 </select><br>
                 <input type="submit" value="Buscar">
             </form>
         </section>
     </header>
     <main>
-        <?php
-        while ($conteudos = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo '<h3>' . $conteudos['titulo'] . '</h3>';
-            echo '<p>Professor: ' . $conteudos['nome'] . '</p>';
-            echo '<p>Descrição: ' . $conteudos['conteudo'] . '</p>';
-            echo '<hr>';
-        }
-        ?>
+            <h3>Titulo Cadastrado</h3>
+            <p>Professor: Fulano</p>
+            <p>Descrição: Mussum Ipsum, cacilds vidis litro abertis. Mauris nec dolor in eros commodo tempor.
+            </p>
+            <hr>
+            <h3>Titulo Cadastrado</h3>
+            <p>Professor: Ciclano</p>
+            <p>Descrição: Mussum Ipsum, cacilds vidis litro abertis. Casamentiss faiz malandris se pirulitá. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+            <hr>
     </main>
 
 </body>
 
 </html>
+
+
