@@ -24,10 +24,9 @@ include('../../php/lista_materias.php')
         <h1><?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?></h1>
     </header>
     <main class="form">
-        <form action="/../php/criar_conteudo.php" method="post">
+        <form action='../../php/criar_conteudo.php' method="post">
             <h2>Cadastrar um novo conteudo</h2><br>
             <select name="materia" id="materia" required>
-                <!-- <option value="">Selecione a materia</option> -->
                 <?php foreach ($materias as $materia): ?>
                     <option value="<?php echo $materia['materia']; ?>"><?php echo $materia['materia']; ?></option>
                 <?php endforeach; ?>
