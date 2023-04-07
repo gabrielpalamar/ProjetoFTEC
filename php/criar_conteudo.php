@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../../php/conexao.php');
+include_once('/conexao.php');
 
 // Obtém os dados do formulário
 // $nome = $_POST['nome'];
@@ -15,7 +15,7 @@ $stmt = $pdo->prepare("INSERT INTO conteudos (titulo, conteudo, nome, materia) V
 $stmt->bindParam(':titulo', $titulo);
 $stmt->bindParam(':conteudo', $conteudo);
 $stmt->bindParam(':nome', $nome);
-$stmt->bindParam(':materia', $materias);
+$stmt->bindParam(':materia', $materia);
 
 // Executa a declaração SQL
 if ($stmt->execute()) {

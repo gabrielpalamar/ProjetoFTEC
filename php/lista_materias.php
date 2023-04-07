@@ -1,7 +1,7 @@
 <?php
-include('.././php/conexao.php');
+include('/conexao.php');
 
-$stmt = $pdo->prepare('SELECT * FROM materias');
+$stmt = $pdo->prepare('SELECT materia FROM materias');
 $stmt->execute();
 $materias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
