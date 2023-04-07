@@ -5,7 +5,6 @@ if (isset($_GET['materia'])) {
     include('../../php/lista_conteudo.php');
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

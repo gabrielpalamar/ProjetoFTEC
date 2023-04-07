@@ -1,12 +1,3 @@
-<?php
-    session_start();
-if (isset($_POST['mensagem'])) {
-    echo '<script>alert("' . $_POST['mensagem'] . '");</script>';
-}
-
-include('../../php/lista_materias.php')
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,12 +7,12 @@ include('../../php/lista_materias.php')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/prof.css">
     <link rel="stylesheet" href="../../css/geral.css">
-    <title><?php echo $_SESSION['usuario']; ?></title>
+    <title>Professor</title>
 </head>
 
 <body>
     <header>
-        <h1><?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?></h1>
+        <h1>Bem-vindo Professor</h1>
     </header>
     <main class="form">
         <form action='../../php/criar_conteudo.php' method="post">

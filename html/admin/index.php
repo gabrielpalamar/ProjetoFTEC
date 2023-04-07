@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (isset($_POST['mensagem'])) {
-  echo '<script>alert("' . $_POST['mensagem'] . ' ");</script>';
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,19 +8,18 @@ if (isset($_POST['mensagem'])) {
   <link rel="stylesheet" href="../../css/admin.css">
   <link rel="stylesheet" href="../../css/geral.css">
   <title>
-    <?php echo $_SESSION['usuario']; ?>
+Admin
   </title>
 </head>
 
 <body>
   <header>
     <h1>
-      <?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?>
     </h1>
   </header>
   <main class="form">
     <h2>Cadastro de Usuário</h2>
-    <form method="post" action="../../php/criar_usuario.php">
+    <form method="" action="">
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" required><br><br>
       <label for="senha">Senha:</label>
