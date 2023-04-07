@@ -15,11 +15,12 @@
         <h1>Bem-vindo Professor</h1>
     </header>
     <main class="form">
-        <form action="" method="">
+        <form action='../../php/criar_conteudo.php' method="post">
             <h2>Cadastrar um novo conteudo</h2><br>
             <select name="materia" id="materia" required>
-                <option>Materia 1</option>
-                <option>Materia 2</option>
+                <?php foreach ($materias as $materia): ?>
+                    <option value="<?php echo $materia['materia']; ?>"><?php echo $materia['materia']; ?></option>
+                <?php endforeach; ?>
             </select>
             <label for="titulo">Titulo</label><br>
             <input type="text" name="titulo" value=""><br>
