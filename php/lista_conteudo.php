@@ -1,6 +1,6 @@
 <?php
-session_start();
-include('../../php/conexao.php');
+include('/conexao.php');
+
 
 // Obtém o valor selecionado no campo "materia"
 $materia = $_GET['materia'];

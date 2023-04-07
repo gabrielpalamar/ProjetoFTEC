@@ -1,5 +1,5 @@
 <?php
-include_once('./conxao.php');
+include_once('/conexao.php');
 
 $nome = $_POST['nome'];
 $senha = $_POST['senha'];
@@ -27,7 +27,5 @@ if ($usuarios == null) {
         header('Location: /../../html/aluno');
     }
 }
-
-
 
 ?>
