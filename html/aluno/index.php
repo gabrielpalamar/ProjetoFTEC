@@ -1,10 +1,11 @@
 <?php
 session_start();
-include('../../php/lista_materias.php');
+include('../../php/lista_materias_aluno.php');
 if (isset($_GET['materia'])) {
     include('../../php/lista_conteudo.php');
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,6 +14,7 @@ if (isset($_GET['materia'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/aluno.css">
     <link rel="stylesheet" href="../../css/geral.css">
+
     <title><?php echo $_SESSION['usuario']; ?></title>
 </head>
 <body>
@@ -40,6 +42,13 @@ if (isset($_GET['materia'])) {
         } else {
             echo 'Selecione uma matéria para exibir os conteúdos.';
         }
-        ?></main>
+        ?>
+        </main>
+
+        <section class="eventos">
+        <?php
+            include('../../php/lista_eventos.php');
+        ?>
+        </section>
 </body>
 </html>
