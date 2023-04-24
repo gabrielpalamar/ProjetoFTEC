@@ -22,7 +22,11 @@ include('../../php/lista_materias.php')
 <body>
     <header>
         <h1><?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?></h1>
-        <button class="logout-bt">Logout</button>
+    
+        <form action="/php/logout.php" method="post">
+        <input class="bt-log" type="submit" value="Logout">
+        </form>
+
     </header>
     <main class="form">
         <form action='../../php/criar_conteudo.php' method="post">

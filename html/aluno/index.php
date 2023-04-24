@@ -24,7 +24,11 @@ include('../../php/lista_conteudo.php');
         <h1>
             <?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?>
         </h1>
-        <button class="logout-bt">Logout</button>
+        
+        <form action="/php/logout.php" method="post">
+        <input type="submit" class="logout-bt" value="Logout">
+        </form>
+
         <section>
             <form action=# method="GET">
                 <select name="materia" id="materia">
