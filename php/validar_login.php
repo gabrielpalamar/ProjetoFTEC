@@ -1,10 +1,10 @@
 <?php
 include_once('/conexao.php');
 
-$nome = $_POST['nome'];
+$nome = strtolower($_POST['nome']);
 $senha = $_POST['senha'];
 
-$stmt = $pdo->prepare('SELECT * FROM usuarios WHERE nome = :nome AND senha = :senha');
+$stmt = $pdo->prepare('SELECT * FROM usuarios WHERE LOWER(nome) = :nome AND senha = :senha');
 $stmt->bindParam(':nome', $nome);
 $stmt->bindParam(':senha', $senha);
 
