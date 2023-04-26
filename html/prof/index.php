@@ -4,7 +4,7 @@ if (isset($_POST['mensagem'])) {
     echo '<script>alert("' . $_POST['mensagem'] . '");</script>';
 }
 
-include('../../php/lista_materias.php')
+include('../../php/lista_materias_prof.php')
 ?>
 
 <!DOCTYPE html>
@@ -59,17 +59,5 @@ include('../../php/lista_materias.php')
             </form>
         </section>
     </main>
-
-    <form class="form2">
-            <h2>Cadastrar Evento</h2><br>
-            <label for="data">Data:</label>
-            <input type="date" id="data" name="data">
-            <label for="conteudo">Conteúdo</label><br>
-            <textarea name="conteudo"></textarea><br>
-            <input type="submit" value="Cadastrar Evento na Agenda">
-        </form>
-
-    
 </body>
-
 </html>

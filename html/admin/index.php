@@ -23,9 +23,6 @@ if (isset($_POST['mensagem'])) {
   <header>
     <h1>
       <?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?>
-      <form action="/php/logout.php" method="post">
-        <input type="submit" class="logout-bt" value="Logout">
-        </form>
     </h1>
     <form action="../../php/logout.php" method="post">
         <input type="submit" class="logout-bt" value="Logout">
