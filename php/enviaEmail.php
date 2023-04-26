@@ -5,7 +5,7 @@ if (isset($_POST['BTEnvia'])) {
     $email = $_SESSION['email'];
     $mensagem = $_POST['mensagem'];
 
-    $email_remetente = "$email";
+    $email_remetente = $email;
 
     //Configurações do email
     $email_destinatario = $_POST['email_destinatario']; // email que receberá as mensagens //fazer uma combobox com os professores e buscar o email do banco
