@@ -61,7 +61,7 @@ if (isset($_GET['materia'])) {
         <input type="text" name="nome" placeholder="Digite o seu nome">
         <label for="email">E-mail:</label><br>
         <input type="text" name="email" placeholder="Digite um email de resposta">
-        <Label for="destinatario">Selecine o destinatario</Label>
+        <Label for="email_destinatario">Selecine o destinatario</Label>
         <select name="email_destinatario" id="email_destinatario">
             <?php foreach ($professores as $professor): ?>
                 <option value="<?php echo $professor['email']; ?>"><?php echo $professor['nome']; ?></option>

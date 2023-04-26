@@ -1,7 +1,6 @@
 <?php
-include('/conexao.php');
 
-$email_destinatario = $_GET['email_destinatario'];
+include('/conexao.php');
 
 $stmt = $pdo->prepare("SELECT nome FROM usuarios WHERE tipo = 'professor'");
 $stmt->execute();
