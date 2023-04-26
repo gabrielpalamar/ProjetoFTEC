@@ -1,3 +1,13 @@
+.formEmail {
+  width: 80%;
+  background-color: #537ec5;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+}
 
 main, .eventos-container {
   width: 80%;
@@ -25,7 +35,7 @@ label {
 }
 
 input[type="text"],
-input[type="password"] {
+textarea {
   width: 90%;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -34,8 +44,8 @@ input[type="password"] {
   margin-top: 5px;
 }
 
-.buscaConteudo {
-  width: 50%;
+.buscaConteudo, .btnEmail {
+  width: 100px;
   background-color: #f39422;
   color: #fff;
   border: none;

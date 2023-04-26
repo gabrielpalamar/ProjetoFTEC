@@ -33,6 +33,8 @@ if (isset($_POST['mensagem'])) {
     <form method="post" action="../../php/criar_usuario.php">
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" required><br><br>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required><br><br>
       <label for="senha">Senha:</label>
       <input type="password" id="senha" name="senha" required><br><br>
       <label for="tipo">Tipo:</label>
