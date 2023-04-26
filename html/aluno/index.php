@@ -57,10 +57,6 @@ if (isset($_GET['materia'])) {
     </main>
 
     <form action="../../php/enviaEmail.php" method="post" class="formEmail">
-        <label for="nome">Nome:</label><br>
-        <input type="text" name="nome" placeholder="Digite o seu nome">
-        <label for="email">E-mail:</label><br>
-        <input type="text" name="email" placeholder="Digite um email de resposta">
         <Label for="email_destinatario">Selecine o destinatario</Label>
         <select name="email_destinatario" id="email_destinatario">
             <?php foreach ($professores as $professor): ?>

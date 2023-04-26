@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['BTEnvia'])) {
 
-    $nome = $_POST['nome'];
+    $nome = $_SESSION['nome'];
     $email = $_SESSION['email'];
     $mensagem = $_POST['mensagem'];
 
