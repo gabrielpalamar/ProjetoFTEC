@@ -27,6 +27,9 @@ if (isset($_POST['mensagem'])) {
         <input type="submit" class="logout-bt" value="Logout">
         </form>
     </h1>
+    <form action="../../php/logout.php" method="post">
+        <input type="submit" class="logout-bt" value="Logout">
+    </form>
   </header>
   <main class="form">
     <h2>Cadastro de Usuário</h2>
@@ -42,7 +45,7 @@ if (isset($_POST['mensagem'])) {
       <label for="administrador">Administrador</label>
       <input type="radio" id="professor" name="tipo" value="professor">
       <label for="professor">Professor</label><br><br>
-      <input type="submit" value="Cadastrar">
+      <input type="submit" value="Cadastrar" class="btnCadastro">
     </form>
   </main>
 </body>
