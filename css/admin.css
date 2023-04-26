@@ -34,7 +34,7 @@ input[type="radio"] {
   margin-bottom: 10px;
 }
 
-input[type="submit"] {
+.btnCadastro {
   width: 50%;
   background-color: #f39422;
   color: #fff;
@@ -44,8 +44,4 @@ input[type="submit"] {
   font-size: 16px;
   margin-top: 20px;
   cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background-color: #f39422;
 }

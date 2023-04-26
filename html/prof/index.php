@@ -24,6 +24,11 @@ include('../../php/lista_materias_prof.php')
 <body>
     <header>
         <h1><?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?></h1>
+
+        <form action="/php/logout.php" method="post">
+            <input type="submit" class="logout-bt" value="Logout">
+        </form>
+        
     </header>
     <main>
         <section class="section">
@@ -38,7 +43,7 @@ include('../../php/lista_materias_prof.php')
                 <input type="text" name="titulo" value=""><br>
                 <label for="conteudo">Conteúdo</label><br>
                 <textarea name="conteudo"></textarea><br>
-                <input type="submit" value="Cadastrar Conteúdo">
+                <input type="submit" value="Cadastrar Conteúdo" class="cadConteudo">
             </form>
         </section>
         <section class="section">
@@ -52,7 +57,7 @@ include('../../php/lista_materias_prof.php')
                 <label for="descricaoDoEvento">Descrição do Evento</label>
                 <textarea name="descricaoDoEvento"></textarea>
                 
-                <input type="submit" value="Cadastrar Evento">
+                <input type="submit" value="Cadastrar Evento" class="cadEvento">
             </form>
         </section>
     </main>

@@ -20,6 +20,11 @@ if (isset($_GET['materia'])) {
 <body>
     <header>
         <h1><?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?></h1>
+
+        <form action="/php/logout.php" method="post">
+            <input type="submit" class="logout-bt" value="Logout">
+        </form>
+        
         <section>
             <form action=# method="GET">
                 <select name="materia" id="materia">
@@ -27,7 +32,7 @@ if (isset($_GET['materia'])) {
                     <option value="<?php echo $materia['materia']; ?>"><?php echo $materia['materia']; ?></option>
                 <?php endforeach; ?>
                 </select><br>
-                <input type="submit" value="Buscar">
+                <input type="submit" value="Buscar" class="buscaConteudo">
             </form>
         </section>
     </header>
