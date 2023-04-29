@@ -2,7 +2,18 @@
   width: 80%;
   background-color: #537ec5;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+}
+
+.form2 {
+  width: 80%;
+  background-color: #537ec5;
+  margin: 0 auto;
+  margin-top: 10px;
   border-radius: 5px;
   padding: 20px;
   text-align: center;
@@ -38,7 +49,7 @@ textarea {
   margin-top: 5px;
 }
 
-input[type="submit"] {
+.cadConteudo, .cadEvento {
   width: 50%;
   background-color: #f39422;
   color: #fff;
@@ -48,8 +59,4 @@ input[type="submit"] {
   font-size: 16px;
   margin-top: 20px;
   cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background-color: #f39422;
 }

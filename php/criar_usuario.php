@@ -3,13 +3,15 @@ include_once('/conexao.php');
 
 // Obtém os dados do formulário
 $nome = $_POST['nome'];
+$email = $_POST['email'];
 $senha = $_POST['senha'];
 $tipo = $_POST['tipo'];
 
 // Prepara e executa a query SQL para inserir o novo registro na tabela "usuarios"
-$stmt = $pdo->prepare("INSERT INTO usuarios (nome, senha, tipo) VALUES (:nome, :senha, :tipo)");
+$stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha, tipo) VALUES (:nome, :email, :senha, :tipo)");
 
 $stmt->bindParam(':nome', $nome);
+$stmt->bindParam(':email', $email);
 $stmt->bindParam(':senha', $senha);
 $stmt->bindParam(':tipo', $tipo);
 

@@ -1,3 +1,13 @@
+.formEmail {
+  width: 80%;
+  background-color: #537ec5;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+}
 
 main, .eventos-container {
   width: 80%;
@@ -25,7 +35,7 @@ label {
 }
 
 input[type="text"],
-input[type="password"] {
+textarea {
   width: 90%;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -34,8 +44,8 @@ input[type="password"] {
   margin-top: 5px;
 }
 
-input[type="submit"] {
-  width: 50%;
+.buscaConteudo, .btnEmail {
+  width: 100px;
   background-color: #f39422;
   color: #fff;
   border: none;
@@ -46,7 +56,20 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover {
-  background-color: #f39422;
+#sessao-usuario .barra-pesquisa{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20%;
 }
 
+button.buscaConteudo.btn-search {
+  margin: 0;
+  margin-top: 5px;
+  width: auto;
+}
+
+.btn-search i {
+  font-size: 16px;
+}
