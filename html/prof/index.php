@@ -23,16 +23,7 @@ include('../../php/lista_materias_prof.php')
 </head>
 
 <body>
-    <header>
-        <h1>
-            <?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?>
-        </h1>
-
-        <form action="/php/logout.php" method="post">
-            <input type="submit" class="logout-bt" value="Logout">
-        </form>
-
-    </header>
+    <?php include './header.php' ?>
     <main>
         <section class="section">
             <form action='../../php/criar_conteudo.php' method="post">
@@ -71,18 +62,18 @@ include('../../php/lista_materias_prof.php')
     <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
     <script src="../../js/textEditor.js"></script>
     <script>
-    // Obtém o conteúdo formatado do CKEditor 5
-    var editor = ClassicEditor.create(document.querySelector('#editor'));
-    var conteudoInput = document.querySelector('#conteudo'); // Campo de entrada escondido para o conteúdo
+        // Obtém o conteúdo formatado do CKEditor 5
+        var editor = ClassicEditor.create(document.querySelector('#editor'));
+        var conteudoInput = document.querySelector('#conteudo'); // Campo de entrada escondido para o conteúdo
 
-    // Função para atribuir o conteúdo formatado ao campo de entrada escondido antes de enviar o formulário
-    function atribuirConteudo() {
-        conteudoInput.value = editor.getData();
-    }
+        // Função para atribuir o conteúdo formatado ao campo de entrada escondido antes de enviar o formulário
+        function atribuirConteudo() {
+            conteudoInput.value = editor.getData();
+        }
 
-    // Adiciona um evento ao botão de envio do formulário para chamar a função atribuirConteudo() antes do envio do formulário
-    document.querySelector('form').addEventListener('submit', atribuirConteudo);
-</script>
+        // Adiciona um evento ao botão de envio do formulário para chamar a função atribuirConteudo() antes do envio do formulário
+        document.querySelector('form').addEventListener('submit', atribuirConteudo);
+    </script>
 </body>
 
 </html>

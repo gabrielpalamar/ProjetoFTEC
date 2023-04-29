@@ -20,14 +20,7 @@ if (isset($_POST['mensagem'])) {
 </head>
 
 <body>
-  <header>
-    <h1>
-      <?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?>
-    </h1>
-    <form action="../../php/logout.php" method="post">
-        <input type="submit" class="logout-bt" value="Logout">
-    </form>
-  </header>
+  <?php include './header.php' ?>
   <main class="form">
     <h2>Cadastro de Usuário</h2>
     <form method="post" action="../../php/criar_usuario.php">

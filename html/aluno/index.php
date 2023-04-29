@@ -24,24 +24,35 @@ if (isset($_GET['materia'])) {
 
 <body>
     <header>
-        <h1>
-            <?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?>
-        </h1>
-        <form action="/php/logout.php" method="post">
-            <input type="submit" class="logout-bt" value="Logout">
-        </form>
-        <section>
-            <form action=# method="GET">
-                <select name="materia" id="materia">
-                    <?php foreach ($materias as $materia): ?>
-                        <option value="<?php echo $materia['materia']; ?>"><?php echo $materia['materia']; ?></option>
-                    <?php endforeach; ?>
-                </select><br>
-                <input type="submit" value="Buscar" class="buscaConteudo">
+        <div id="sessao-usuario">
+            <h1>
+                <?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?>
+            </h1>
+            <form action="/php/busca.php" method="post" class="barra-pesquisa">
+                <input type="text" name="search" placeholder="Digite sua pesquisa...">
+                <button type="submit" class="buscaConteudo btn-search"><i class="material-icons">search</i></button>
             </form>
-        </section>
+
+            <form action="/php/logout.php" method="post">
+                <input type="submit" class="logout-bt" value="Logout">
+            </form>
+        </div>
     </header>
     <main>
+        <section class="buscar-conteudos">
+            <h3>Buscar conteudos:</h3>
+            <div>
+                <form action=# method="GET" class="form-selecao-materia">
+                    <label>Buscar por matéria</label>
+                    <select name="materia" id="materia">
+                        <?php foreach ($materias as $materia): ?>
+                            <option value="<?php echo $materia['materia']; ?>"><?php echo $materia['materia']; ?></option>
+                        <?php endforeach; ?>
+                    </select><br>
+                    <input type="submit" value="Buscar" class="buscaConteudo">
+                </form>
+            </div>
+        </section>
         <?php
         if (isset($_GET['materia'])) {
             while ($conteudos = $stmt->fetch(PDO::FETCH_ASSOC)) {
