@@ -1,5 +1,5 @@
 <?php
-include_once('/conexao.php');
+include_once('conexao.php');
 // Definir local para português brasileiro
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
 // Obter a data e hora atual

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('/conexao.php');
+include_once('./conexao.php');
 
 date_default_timezone_set('America/Sao_Paulo');
 $data_atual = strtotime(date('Y-m-d'));

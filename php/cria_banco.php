@@ -1,5 +1,5 @@
 <?php
-include_once('/conexao.php');
+include_once('./conexao.php');
 
 #region Primeira tabela: tipos
 $pdo->exec("

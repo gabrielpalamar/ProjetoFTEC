@@ -1,5 +1,5 @@
 <?php
-include_once('/conexao.php');
+include_once('./conexao.php');
 
 $nome = strtolower($_POST['nome']);
 $senha = $_POST['senha'];
