@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('/conexao.php');
+include_once('./conexao.php');
 
 // $nome = $_POST['nome'];
 // Recupera os valores do formulário

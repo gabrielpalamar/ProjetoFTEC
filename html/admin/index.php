@@ -20,7 +20,9 @@ if (isset($_POST['mensagem'])) {
 </head>
 
 <body>
-  <?php include './header.php' ?>
+  <header>
+    <?php include '../header.php' ?>
+  </header>
   <main class="form">
     <h2>Cadastro de Usuário</h2>
     <form method="post" action="../../php/criar_usuario.php">

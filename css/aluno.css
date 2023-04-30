@@ -1,4 +1,4 @@
-.formEmail {
+.formEmail, .listaConteudos {
   width: 80%;
   background-color: #537ec5;
   margin: 0 auto;
@@ -55,7 +55,6 @@ textarea {
   margin-top: 20px;
   cursor: pointer;
 }
-
 #sessao-usuario .barra-pesquisa{
   display: flex;
   flex-direction: row;
