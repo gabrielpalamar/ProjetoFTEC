@@ -40,7 +40,7 @@
         padding: 10px 10px;
         border-radius: 4px;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 12px;
     }
 </style>
 <?php
