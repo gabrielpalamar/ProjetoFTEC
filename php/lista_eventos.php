@@ -1,17 +1,15 @@
 <?php
-include_once('/conexao.php');
-// Definir local para português brasileiro
+include_once('conexao.php');
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'portuguese');
-// Obter a data e hora atual
 date_default_timezone_set('America/Sao_Paulo');
 $mes_atual = date('m');
 
-// Consultar o banco de dados e obter os eventos futuros
-$stmt = $pdo->prepare('SELECT * FROM eventos WHERE mes >= ?'); 
+$stmt = $pdo->prepare('SELECT * 
+                       FROM eventos 
+                       WHERE mes >= ?'); 
 $stmt->execute([$mes_atual]);
 $eventos = $stmt->fetchAll();
 
-// Armazenar a saída em um buffer
 ob_start();
 
 if (empty($eventos)) {
@@ -52,7 +50,6 @@ $count_eventos = count($eventos);
     echo '</div>';
 }
 
-// Obter a saída do buffer e imprimir
 $saida = ob_get_clean();
 echo $saida;
 ?>

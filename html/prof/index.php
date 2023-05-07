@@ -1,11 +1,14 @@
 <?php
+include_once('../../php/conexao.php');
 session_start();
 if (isset($_POST['mensagem'])) {
     echo '<script>alert("' . $_POST['mensagem'] . '");</script>';
 }
 
-include('../../php/lista_materias_prof.php')
-    ?>
+$stmt = $pdo->prepare('SELECT materia FROM materias');
+$stmt->execute();
+$materias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,18 +27,11 @@ include('../../php/lista_materias_prof.php')
 
 <body>
     <header>
-        <h1>
-            <?php echo 'Bem-vindo, ' . $_SESSION['usuario'] . '!'; ?>
-        </h1>
-
-        <form action="/php/logout.php" method="post">
-            <input type="submit" class="logout-bt" value="Logout">
-        </form>
-
+        <?php include '../header.php' ?>
     </header>
     <main>
         <section class="section">
-            <form action='../../php/criar_conteudo.php' method="post">
+            <form action='/../../php/criar_conteudo.php' method="post">
                 <h2>Cadastrar um novo conteudo</h2><br>
                 <select name="materia" id="materia" required>
                     <?php foreach ($materias as $materia): ?>
@@ -54,7 +50,7 @@ include('../../php/lista_materias_prof.php')
             </form>
         </section>
         <section class="section">
-            <form action="../../php/criar_evento.php" method="post">
+            <form action="/../../php/criar_evento.php" method="post">
                 <label for="dataDoEvento">Data:</label>
                 <input type="date" id="data" name="dataDoEvento">
 
@@ -69,20 +65,17 @@ include('../../php/lista_materias_prof.php')
         </section>
     </main>
     <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
-    <script src="../../js/textEditor.js"></script>
+    <script src="/../../js/textEditor.js"></script>
     <script>
-    // Obtém o conteúdo formatado do CKEditor 5
-    var editor = ClassicEditor.create(document.querySelector('#editor'));
-    var conteudoInput = document.querySelector('#conteudo'); // Campo de entrada escondido para o conteúdo
+        var editor = ClassicEditor.create(document.querySelector('#editor'));
+        var conteudoInput = document.querySelector('#conteudo'); // Campo de entrada escondido para o conteúdo
 
-    // Função para atribuir o conteúdo formatado ao campo de entrada escondido antes de enviar o formulário
-    function atribuirConteudo() {
-        conteudoInput.value = editor.getData();
-    }
+        function atribuirConteudo() {
+            conteudoInput.value = editor.getData();
+        }
 
-    // Adiciona um evento ao botão de envio do formulário para chamar a função atribuirConteudo() antes do envio do formulário
-    document.querySelector('form').addEventListener('submit', atribuirConteudo);
-</script>
+        document.querySelector('form').addEventListener('submit', atribuirConteudo);
+    </script>
 </body>
 
 </html>

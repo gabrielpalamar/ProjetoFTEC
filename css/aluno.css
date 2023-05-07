@@ -1,4 +1,4 @@
-.formEmail {
+.formEmail, .listaConteudos {
   width: 80%;
   background-color: #537ec5;
   margin: 0 auto;
@@ -54,4 +54,21 @@ textarea {
   font-size: 16px;
   margin-top: 20px;
   cursor: pointer;
+}
+#sessao-usuario .barra-pesquisa{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20%;
+}
+
+button.buscaConteudo.btn-search {
+  margin: 0;
+  margin-top: 5px;
+  width: auto;
+}
+
+.btn-search i {
+  font-size: 16px;
 }

@@ -1,29 +1,49 @@
 <?php
 if (isset($_POST['BTEnvia'])) {
+    session_start();
+    include('./conexao.php');
 
-    $nome = $_SESSION['nome'];
-    $email = $_SESSION['email'];
+    $stmt = $pdo->prepare('SELECT email FROM usuarios WHERE nome = :usuario');
+    $stmt->bindValue(':usuario', $_SESSION['usuario']);
+    $stmt->execute();
+    $aluno = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $stmt = $pdo->prepare('SELECT email FROM usuarios WHERE nome = :prof');
+    $stmt->bindValue(':prof', $_POST['prof']);
+    $stmt->execute();
+    $professor = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $nome = $_SESSION['usuario'];
+    $email = $aluno[0]['email'];
     $mensagem = $_POST['mensagem'];
 
-    $email_remetente = $email;
+    $remetente = "noreply@ananique.kinghost.net";
 
-    //Configurações do email
-    $email_destinatario = $_POST['email_destinatario']; // email que receberá as mensagens //fazer uma combobox com os professores e buscar o email do banco
-    $email_reply = $email;
-    $email_assunto = "Contato Plataforma SPEC";
+    $destinatario = $professor[0]['email'];
+    $replyTo = $remetente;
+    $assunto = "Contato Plataforma SPEC";
 
-    //Monta Mensagem
-    $email_conteudo = "Nome = $nome \n";
-    $email_conteudo .= "Email = $email \n";
-    $email_conteudo .= "Mensagem = $mensagem \n";
+    $conteudo = "Nome = $nome \n";
+    $conteudo .= "Email = {$aluno[0]['email']} \n";
+    $conteudo .= "Mensagem = $mensagem \n";
 
-    $email_headers = implode("\n", array("From: $email_remetente", "Reply-To: $email_reply", "Return-Path: $email_remetente", "MIME-Version: 1.0", "X-Priority: 3", "Content-Type: text/html; charset=UTF-8"));
+    $headers = implode("\n", array("From: $remetente",
+                                   "Reply-To: $replyTo",
+                                   "Return-Path: $remetente",
+                                   "MIME-Version: 1.0",
+                                   "X-Priority: 3",
+                                   "Content-Type: text/html; charset=UTF-8"));
 
     //Enviando o email 
-    if (mail($email_destinatario, $email_assunto, nl2br($email_conteudo), $email_headers)) {
-        echo "</b>E-Mail enviado com sucesso!</b>";
+    if (mail($professor[0]['email'], $assunto, nl2br($conteudo), $headers)) {
+        $mensagem =  "E-Mail enviado com sucesso!";
     } else {
-        echo "</b>Falha no envio do E-Mail!</b>";
+        $mensagem =  "Falha no envio do E-Mail!";
     }
 }
+
+echo '<form id="redirect-form" method="POST" action="/../html/aluno/">';
+echo '<input type="hidden" name="mensagem" value="' . $mensagem . '">';
+echo '</form>';
+echo '<script>document.getElementById("redirect-form").submit();</script>';
 ?>

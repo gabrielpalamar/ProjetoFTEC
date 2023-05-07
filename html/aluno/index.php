@@ -50,7 +50,7 @@ if (isset($_GET['materia'])) {
         </div>
 
     </header>
-    <section class="listaConteudos">
+    <section class="listaConteudos"></section>
         <form action="#" method="GET">
             <select name="materia" id="materia">
                 <?php foreach ($materias as $materia): ?>

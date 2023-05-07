@@ -1,40 +1,44 @@
 <?php
 session_start();
-include_once('/conexao.php');
+include_once('./conexao.php');
 
 date_default_timezone_set('America/Sao_Paulo');
 $data_atual = strtotime(date('Y-m-d'));
 
-// Definir as variáveis com os dados enviados pelo formulário
 $data = $_POST['dataDoEvento'];
 $titulo = $_POST['tituloDoEvento'];
 $descricao = $_POST['descricaoDoEvento'];
 $criado_por = $_SESSION['usuario'];
 
-// Validar os dados recebidos
-if (!$data || !$titulo || !$descricao || !$criado_por) {
-    // Algum campo obrigatório está vazio
-    die('Por favor, preencha todos os campos.');
+if (empty($data) || empty($titulo) || empty($descricao) || empty($criado_por)) {
+    $mensagem = "Por favor, preencha todos os campos.";
 }
 
 list($ano, $mes, $dia) = explode('-', $data);
 
 if (strtotime($data) <= $data_atual) {
-    // data do evento é anterior à data atual
-    echo '<script>alert("A data do evento deve ser maior ou igual à data atual."); window.history.back();</script>';
-    die();
+    $mensagem = "A data do evento deve ser maior ou igual à data atual.";
+}else{
+    $stmt = $pdo->prepare('INSERT INTO eventos (ano, mes, dia, titulo, descricao, criado_por)
+                           VALUES (:ano, :mes, :dia, :titulo, :descricao, :criado_por)');
+    $stmt->bindParam(':ano', $ano);
+    $stmt->bindParam(':mes', $mes);
+    $stmt->bindParam(':dia', $dia);
+    $stmt->bindParam(':titulo', $titulo);
+    $stmt->bindParam(':descricao', $descricao);
+    $stmt->bindParam(':criado_por', $criado_por);
+    $stmt->execute();
+    
+    if ($stmt->rowCount() > 0) {
+        $mensagem = "Evento criado com sucesso.";
+    } else {
+        $mensagem = "Erro ao criar evento: " . $stmt->errorInfo()[2];
+    }
 }
 
-// Preparar e executar a query SQL para inserir o novo evento
-$stmt = $pdo->prepare('INSERT INTO eventos (ano, mes, dia, titulo, descricao, criado_por) VALUES (?, ?, ?, ?, ?, ?)');
-$stmt->execute([$ano, $mes, $dia, $titulo, $descricao, $criado_por]);
 
-// Verificar se o evento foi inserido com sucesso
-if ($stmt->rowCount() > 0) {
-    // Evento cadastrado com sucesso
-    echo '<script>alert("Evento cadastrado com sucesso!"); window.history.back();</script>';
-} else {
-    // Ocorreu um erro ao cadastrar o evento
-    echo '<script>alert("Ocorreu um erro ao cadastrar o evento. Tente novamente mais tarde."); window.history.back();</script>';
-}
+echo '<form id="redirect-form" method="POST" action="/html/prof/">';
+echo '<input type="hidden" name="mensagem" value="' . $mensagem . '">';
+echo '</form>';
+echo '<script>document.getElementById("redirect-form").submit();</script>';
 ?>
