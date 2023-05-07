@@ -25,6 +25,7 @@ if (isset($_GET['materia'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../../css/aluno.css">
     <link rel="stylesheet" href="../../css/geral.css">
 
@@ -80,11 +81,16 @@ if (isset($_GET['materia'])) {
         }
         ?>
     </section>
+    </section>
 
     <form action="/../../php/enviaEmail.php" method="post" class="formEmail">
         <Label for="prof">Selecione o destinatário</Label>
         <select name="prof" id="prof">
+    <form action="/../../php/enviaEmail.php" method="post" class="formEmail">
+        <Label for="prof">Selecione o destinatário</Label>
+        <select name="prof" id="prof">
             <?php foreach ($professores as $professor): ?>
+                <option value="<?php echo $professor['nome']; ?>"><?php echo $professor['nome']; ?></option>
                 <option value="<?php echo $professor['nome']; ?>"><?php echo $professor['nome']; ?></option>
             <?php endforeach; ?>
         </select>

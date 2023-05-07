@@ -15,8 +15,11 @@ if (isset($_POST['BTEnvia'])) {
 
     $nome = $_SESSION['usuario'];
     $email = $aluno[0]['email'];
+    $nome = $_SESSION['usuario'];
+    $email = $aluno[0]['email'];
     $mensagem = $_POST['mensagem'];
 
+    $remetente = "noreply@ananique.kinghost.net";
     $remetente = "noreply@ananique.kinghost.net";
 
     $destinatario = $professor[0]['email'];
