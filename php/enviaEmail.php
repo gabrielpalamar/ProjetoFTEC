@@ -15,13 +15,9 @@ if (isset($_POST['BTEnvia'])) {
 
     $nome = $_SESSION['usuario'];
     $email = $aluno[0]['email'];
-    $nome = $_SESSION['usuario'];
-    $email = $aluno[0]['email'];
     $mensagem = $_POST['mensagem'];
 
     $remetente = "noreply@ananique.kinghost.net";
-    $remetente = "noreply@ananique.kinghost.net";
-
     $destinatario = $professor[0]['email'];
     $replyTo = $remetente;
     $assunto = "Contato Plataforma SPEC";
@@ -48,5 +44,8 @@ if (isset($_POST['BTEnvia'])) {
 echo '<form id="redirect-form" method="POST" action="/../html/aluno/">';
 echo '<input type="hidden" name="mensagem" value="' . $mensagem . '">';
 echo '</form>';
-echo '<script>document.getElementById("redirect-form").submit();</script>';
+
+if (isset($mensagem)) {
+    echo '<script>document.getElementById("redirect-form").submit();</script>';
+}
 ?>
