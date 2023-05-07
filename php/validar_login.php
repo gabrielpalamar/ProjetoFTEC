@@ -13,7 +13,7 @@ $stmt->execute();
 $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if ($usuarios == null) {
-    echo "Usuário não encontrado.";
+    $mensagem = "Usuario nao encontrado: " . $stmt->errorInfo()[2];
 } else {
     session_start();
     $_SESSION['usuario'] = $usuarios[0]['nome'];
@@ -28,4 +28,8 @@ if ($usuarios == null) {
     }
 }
 
+echo '<form id="redirect-form" method="POST" action="/../html/login/">';
+echo '<input type="hidden" name="mensagem" value="' . $mensagem . '">';
+echo '</form>';
+echo '<script>document.getElementById("redirect-form").submit();</script>';
 ?>
